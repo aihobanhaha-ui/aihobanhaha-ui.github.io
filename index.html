@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이모지 웹페이지</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 떠다니는 이모지 */
+        .emoji-bg {
+            position: fixed;
+            font-size: 40px;
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        header {
+            background: linear-gradient(90deg, #ff6a00, #ee0979);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: white;
+            color: #ee0979;
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 40px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 30px;
+        }
+
+        .card {
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .card.home { background: linear-gradient(135deg, #f6d365, #fda085); }
+        .card.about { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+        .card.contact { background: linear-gradient(135deg, #fccb90, #d57eeb); }
+
+        .emoji-list {
+            font-size: 1.5rem;
+            line-height: 2;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 30px;
+            margin-top: 25px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(90deg, #2193b0, #6dd5ed);
+            color: white;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 배경 이모지 -->
+<div class="emoji-bg" style="top:10%; left:5%;">🎈</div>
+<div class="emoji-bg" style="top:30%; right:8%;">✨</div>
+<div class="emoji-bg" style="bottom:20%; left:10%;">🌟</div>
+<div class="emoji-bg" style="bottom:10%; right:15%;">🎉</div>
+
+<header>
+    <h1>🌈✨ 이모지 월드에 오신 걸 환영해요! ✨🌈</h1>
+    <p>🎨💖 감성 가득한 이모지 스타일 웹페이지입니다 💖🎨</p>
+</header>
+
+<nav>
+    <a href="#home">🏠 홈</a>
+    <a href="#about">📖 소개</a>
+    <a href="#contact">📞 연락처</a>
+</nav>
+
+<div class="container">
+    <h2 id="home">🏠 홈</h2>
+    <div class="card home">
+        🚀 이 페이지는 다양한 이모지를 활용해 생동감 있게 구성되었습니다!<br>
+        🌈 보기만 해도 기분 좋아지는 디자인을 목표로 했어요 😊
+    </div>
+
+    <h2 id="about">📖 소개</h2>
+    <div class="card about">
+        💡 HTML + CSS + 🎉 이모지 조합만으로도<br>
+        🎨 충분히 화려하고 재미있는 페이지를 만들 수 있어요!
+        <div class="emoji-list">
+            😍 직관적 표현<br>
+            🎯 시각적 강조<br>
+            🌟 감성 포인트
+        </div>
+    </div>
+
+    <h2 id="contact">📞 연락처</h2>
+    <div class="card contact">
+        📧 example@email.com<br>
+        📱 010-0000-0000<br>
+        💬 언제든지 환영합니다!
+    </div>
+
+    <a href="#" class="button">🚀✨ 지금 시작하기 ✨🚀</a>
+</div>
+
+<footer>
+    💖🌟 2026 Emoji Company | Made with ❤️ and 🎨 🌟💖
+</footer>
+
+</body>
+</html>
